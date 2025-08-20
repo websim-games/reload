@@ -1,0 +1,108 @@
+<html lang="en">
+	<head>
+		<meta name="referrer" content="no-referrer-when-downgrade" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>The Reload Game</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+
+	<body>
+		<div id="game-container" class="container">
+			<div id="top-menu" class="top-menu hidden">
+				<button data-section-id="home" class="top-menu-button open" onclick="openSection('home')">🏠</button>
+				<button data-section-id="shop" class="top-menu-button" onclick="openSection('shop')">🛒</button>
+				<button data-section-id="luck-upgrades" class="top-menu-button" onclick="openSection('luck-upgrades')">🍀</button>
+				<button data-section-id="achievements" class="top-menu-button" onclick="openSection('achievements')">🏅</button>
+				<button data-section-id="rebirth" class="top-menu-button" onclick="openSection('rebirth')">🔁</button>
+				<button data-section-id="leaderboard" class="top-menu-button" onclick="openSection('leaderboard')">👑</button>
+				<button data-section-id="settings" class="top-menu-button" onclick="openSection('settings')">⚙️</button>
+			</div>
+			<div id="home" class="section home">
+				<h1>🔥 The Reload Game 🔥</h1>
+				<p>Refresh the page to get coins</p>
+				<div id="coins">0$</div>
+				<div id="increment">1$ per reload</div>
+				<!-- Added reload button that simulates a page refresh without reloading the tab -->
+				<button id="reload-button" onclick="simulateReload()">Reload</button>
+			</div>
+			<div id="shop" class="section shop hidden">
+				<h2>Shop</h2>
+				<div id="upgradesContainer" class="section-container">
+					<!-- Upgrades will be dynamically added here -->
+				</div>
+			</div>
+			<div id="luck-upgrades" class="section luck-upgrades hidden">
+				<h2>Luck Upgrades</h2>
+				<div id="luckUpgradesContainer" class="section-container">
+					<!-- Luck Upgrades will be dynamically added here -->
+				</div>
+			</div>
+			<div id="rebirth" class="section rebirth hidden">
+				<h2>Rebirth</h2>
+				<div id="rebirthContainer" class="section-container">
+					<!-- Rebirth Upgrades will be dynamically added here -->
+				</div>
+			</div>
+			<div id="achievements" class="section achievements hidden">
+				<h2>Achievements</h2>
+				<div id="achievementsContainer" class="section-container">
+					<!-- Achievements will be dynamically added here -->
+				</div>
+			</div>
+			<div id="leaderboard" class="section leaderboard hidden">
+				<h2>Leaderboard</h2>
+				<div id="leaderboard-wrapper-div">
+					<table id="leaderboard-table">
+						<thead>
+							<tr>
+								<th>Rank</th>
+								<th>Username</th>
+								<th>Total Score</th>
+							</tr>
+						</thead>
+						<tbody id="leaderboard-table-body">
+							<!-- Leaderboard entries will be inserted here -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="settings" class="section settings hidden">
+				<h2>Settings</h2>
+				<div id="settingsContainer" class="section-container">
+					<div id="darkmode-setting-div" class="section-row setting">
+						<div>Dark mode</div>
+						<label class="switch">
+							<input type="checkbox" id="darkmode-switch" onchange="toggleDarkMode()" />
+							<span class="slider"></span>
+						</label>
+					</div>
+					<div id="alerts-setting-div" class="section-row setting">
+						<div>Alerts</div>
+						<label class="switch">
+							<input type="checkbox" id="alerts-switch" onchange="toggleAlerts()" />
+							<span class="slider"></span>
+						</label>
+					</div>
+					<div id="reset-setting-div" class="section-row setting">
+						<div>Reset game</div>
+						<button id="reset-button" class="reset-button" onclick="confirmResetGame()">RESET GAME</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="reload-overlay">
+			<svg viewBox="0 0 50 50">
+				<circle cx="25" cy="25" r="20" fill="none" stroke="#4CAF50" stroke-width="5" stroke-linecap="round" />
+			</svg>
+		</div>
+		<script type="importmap">
+			{
+				"imports": {
+					"saveLoad": "./saveLoad.js"
+				}
+			}
+		</script>
+		<script type="module" src="main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,366 @@
+* {
+	padding: 0;
+	margin: 0;
+	min-width: 0;
+	box-sizing: border-box;
+	font-family: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+	-webkit-tap-highlight-color: transparent;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+	--font-family: Arial, sans-serif;
+	/* --- Colors --- */
+	--background-color: #f0f0f0;
+	--section-background: white;
+	--coins-color: #4caf50;
+	--button-background: #4caf50;
+	--button-color: white;
+	--button-disabled-background: #ccc;
+	--small-text-color: #666;
+	--text-color: #000;
+	--leaderboard-border-color: #ddd;
+	--leaderboard-header-background: #f2f2f2;
+	--top-menu-button-font: Roboto;
+	--top-menu-button-background-open: #0046ba;
+	--top-menu-button-background: #008cba;
+	--top-menu-button-hover-background: #00b0f0;
+	--reset-button-background: #f00;
+	--reset-button-background-hover: #f33;
+	--switch-background: #ccc;
+	--switch-checked-background: #2196f3;
+	--switch-slider-background: white;
+	--scrollbar-track-color: #f0f0f0;
+	--scrollbar-thumb-color: #999;
+}
+
+.dark-mode {
+	--background-color: #000;
+	--text-color: #fff;
+	--section-background: #222;
+	--button-background: #555;
+	--button-disabled-background: #444;
+	--button-disabled-color: #888;
+	--leaderboard-header-background: #444;
+	--leaderboard-border-color: #555;
+	--top-menu-button-background-open: #888;
+	--top-menu-button-background: #404040;
+	--top-menu-button-hover-background: #666;
+	--dark-text: #fff;
+	--scrollbar-track-color: #333;
+	--scrollbar-thumb-color: #999;
+}
+
+:root {
+	/* --- Sizes --- */
+	--body-padding: min(20px, 5vw);
+	--section-padding: min(20px, 5vw);
+	--section-margin: min(10px, 2.5vw);
+	--section-border-radius: min(10px, 2.5vw);
+	--section-max-width: min(475px, 95vw);
+	--button-border-radius: min(5px, 1.25vw);
+	--h1-font-size: min(36px, 6.5vw);
+	--h2-font-size: min(30px, 12vw);
+	--coins-font-size: min(48px, 12vw);
+	--coins-margin: min(20px, 5vw) 0;
+	--increment-font-size: min(22px, 5.5vw);
+	--p-font-size: min(18px, 4.5vw);
+	--button-padding: min(15px, 3.75vw) min(32px, 8vw);
+	--button-font-size: min(16px, 4vw);
+	--button-margin: min(4px, 1vw) min(2px, 0.5vw);
+	--upgrade-margin: min(10px, 2.5vw) 0;
+	--upgrade-description-font-size: min(0.9em, 3.6vw);
+	--leaderboard-cell-padding: min(10px, 2.5vw);
+	--top-menu-button-padding: min(15px, 3.75vw);
+	--top-menu-button-font-size: min(30px, 7.5vw);
+	--top-menu-button-gap: min(7.5px, 1.8vw);
+	--top-menu-button-size: min(50px, 12.5vw);
+	--reset-button-font-size: min(20px, 5vw);
+	--reset-button-padding: min(12px, 3vw);
+	--switch-width: min(60px, 15vw);
+	--switch-height: min(34px, 8.5vw);
+}
+
+body {
+	font-family: var(--font-family);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+	background-color: var(--background-color);
+	padding: var(--body-padding);
+	color: var(--text-color);
+}
+
+.container {
+	align-items: center;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.section {
+	text-align: center;
+	padding: var(--section-padding);
+	background-color: var(--section-background);
+	border-radius: var(--section-border-radius);
+	margin: var(--section-margin);
+	width: 95%;
+	max-width: var(--section-max-width);
+	color: var(--text-color);
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+h1 {
+	font-size: var(--h1-font-size);
+}
+
+h2 {
+	font-size: var(--h2-font-size);
+}
+
+#coins {
+	font-size: var(--coins-font-size);
+	color: var(--coins-color);
+}
+
+#increment {
+	font-size: var(--increment-font-size);
+}
+
+p {
+	font-size: var(--p-font-size);
+}
+
+button {
+	line-height: 1;
+	background-color: var(--button-background);
+	border: none;
+	color: var(--button-color);
+	padding: var(--button-padding);
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: var(--button-font-size);
+	cursor: pointer;
+	border-radius: var(--button-border-radius);
+	transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:disabled {
+	background-color: var(--button-disabled-background);
+	cursor: not-allowed;
+	opacity: 0.7;
+}
+
+.section-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: var(--upgrade-margin);
+}
+
+.section-row > div {
+	text-align: left;
+	color: var(--text-color);
+}
+
+.section-row > div > div:first-child {
+	font-weight: bold;
+	color: var(--text-color);
+}
+
+.section-row > div > div:last-child {
+	font-size: var(--upgrade-description-font-size);
+	color: var(--small-text-color);
+}
+
+#leaderboard-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#leaderboard-table th,
+#leaderboard-table td {
+	padding: var(--leaderboard-cell-padding);
+	border-bottom: 1px solid var(--leaderboard-border-color);
+	text-align: left;
+	font-family: monospace;
+}
+
+#leaderboard-table th {
+	background-color: var(--leaderboard-header-background);
+	font-weight: bold;
+}
+
+#leaderboard-wrapper-div {
+	max-height: 300px;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+}
+
+#leaderboard-wrapper-div::-webkit-scrollbar {
+	width: 8px;
+}
+
+#leaderboard-wrapper-div::-webkit-scrollbar-track {
+	background: var(--scrollbar-track-color);
+	border-radius: 4px;
+}
+
+#leaderboard-wrapper-div::-webkit-scrollbar-thumb {
+	background: var(--scrollbar-thumb-color);
+	border-radius: 4px;
+	transition: background 0.2s ease;
+}
+
+#leaderboard-table tr:last-child td {
+	border-bottom: none;
+}
+
+.top-menu {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--top-menu-button-gap);
+}
+
+.top-menu-button {
+	font-family: var(--top-menu-button-font);
+	padding: var(--top-menu-button-padding);
+	font-size: var(--top-menu-button-font-size);
+	width: var(--top-menu-button-size);
+	height: var(--top-menu-button-size);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--top-menu-button-background);
+}
+
+.top-menu-button:hover {
+	background-color: var(--top-menu-button-hover-background);
+}
+
+.open {
+	background-color: var(--top-menu-button-background-open);
+}
+
+.open:hover {
+	background-color: var(--top-menu-button-background-open);
+}
+
+.reset-button {
+	background-color: var(--reset-button-background);
+	font-weight: bold;
+	font-size: var(--reset-button-font-size);
+	padding: var(--reset-button-padding);
+	transition: background-color 0.2s ease;
+}
+
+.reset-button:hover {
+	background-color: var(--reset-button-background-hover);
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: var(--switch-width);
+	height: var(--switch-height);
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--switch-background);
+	border-radius: var(--switch-height);
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: calc(var(--switch-height) * 0.8);
+	width: calc(var(--switch-height) * 0.8);
+	left: calc(var(--switch-height) * 0.1);
+	bottom: calc(var(--switch-height) * 0.1);
+	background-color: var(--switch-slider-background);
+	border-radius: 50%;
+}
+
+.switch:hover .slider,
+.switch:focus-within .slider {
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.switch:hover .slider:before,
+.switch:focus-within .slider:before {
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .slider {
+	background-color: var(--switch-checked-background);
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(calc(var(--switch-width) - var(--switch-height)));
+	-ms-transform: translateX(calc(var(--switch-width) - var(--switch-height)));
+	transform: translateX(calc(var(--switch-width) - var(--switch-height)));
+}
+
+#reload-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--background-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.4s ease;
+	z-index: 9999;
+}
+
+#reload-overlay.active {
+	opacity: 1;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+#reload-overlay svg {
+	width: 60px;
+	height: 60px;
+	animation: spin 1s linear infinite;
+}
+
+.hidden {
+	display: none;
+}
